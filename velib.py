@@ -70,7 +70,7 @@ def export_to_csvfile(DATA):
 	try:
 		import pandas as pd
 		df = pd.DataFrame(DATA)
-		df.to_csv(OUTPUT_DIR)
+		df.to_csv(OUTPUT_DIR, index=False)
 		print("Write CSV file successfully!")
 	except Exception as e:
 		print(e)
