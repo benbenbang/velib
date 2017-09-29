@@ -5,11 +5,28 @@ from oauth2client.service_account import ServiceAccountCredentials as SAC
 
 # Basic Setup
 LOC_DIR = os.path.dirname(os.path.realpath(__file__))
-OUTPUT_DIR = os.path.join(LOC_DIR, 'Output/paris.csv')
 OPEN_DATA_API_KEY = os.environ.get("VELIB_WEBHOOK_SECRET")
 GOOGLE_DRIVE_API_KEY = os.environ.get("GOOGLE_DRIVE_SECRET")
 VELIB_SPREADSHEET_CREDENTIAL = os.environ.get("VELIB_SPREADSHEET_SECRET")
-OPEN_DATA_URL = "https://api.jcdecaux.com/vls/v1/stations?contract=Paris&apiKey={}".format(OPEN_DATA_API_KEY)
+CITY="Marseille"
+'''
+Cité 			|	Nom
+----------------------------------
+Amiens			|	Velam
+Besancon		|	VéloCité
+Cergy-Pontoise	|	Velo2
+Creteil 		|	Cristolib
+Lyon			|	Vélo'V
+Marseille		|	Le vélo
+Mulhouse		|	VéloCité
+Nancy			|	vélOstan'lib
+Nantes			|	Bicloo
+Paris			|	Velib
+Rouen			|	cy'clic
+Toulouse		|	Vélô
+'''
+OUTPUT_DIR = os.path.join(LOC_DIR, 'Output/{}.csv').format(CITY)
+OPEN_DATA_URL = "https://api.jcdecaux.com/vls/v1/stations?contract={0}&apiKey={1}".format(CITY, OPEN_DATA_API_KEY)
 
 def grabData(OPEN_DATA_URL=OPEN_DATA_URL):
 	response = requests.get(OPEN_DATA_URL).json()
