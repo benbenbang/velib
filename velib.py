@@ -14,7 +14,7 @@ Cité 			|	Nom
 ----------------------------------
 Amiens			|	Velam
 Besancon		|	VéloCité
-Cergy-Pontoise	|	Velo2
+Cergy-Pontoise		|	Velo2
 Creteil 		|	Cristolib
 Lyon			|	Vélo'V
 Marseille		|	Le vélo
