@@ -21,7 +21,7 @@ Notes:
 |Rouen           |   cy'clic       |
 |Toulouse        |   Vélô          |
 
-Step 1. Get an API code from [JCDecaux developer](https://developer.jcdecaux.com/#/home). 
-Step 2. Edit the `City` parameter to one of the city which you would like to get the data.  
-Step 3. Run the python code and upload the CSV file to Google My Map. 
-Step 4. Enjoy using Google Map for checking out your destination and where you can stop your vélo at the same time.  
+Step 1. Get an API code from [JCDecaux developer](https://developer.jcdecaux.com/#/home).  
+Step 2. Edit the `City` parameter to one of the city which you would like to get the data.   
+Step 3. Run the python code and upload the CSV file to Google My Map.   
+Step 4. Enjoy using Google Map for checking out your destination and where you can stop your vélo at the same time.   
