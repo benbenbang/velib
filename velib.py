@@ -8,7 +8,7 @@ LOC_DIR = os.path.dirname(os.path.realpath(__file__))
 OPEN_DATA_API_KEY = os.environ.get("VELIB_WEBHOOK_SECRET")
 GOOGLE_DRIVE_API_KEY = os.environ.get("GOOGLE_DRIVE_SECRET")
 VELIB_SPREADSHEET_CREDENTIAL = os.environ.get("VELIB_SPREADSHEET_SECRET")
-CITY="Marseille"
+CITY="Paris"
 '''
 Cité 			|	Nom
 ----------------------------------
@@ -27,6 +27,14 @@ Toulouse		|	Vélô
 '''
 OUTPUT_DIR = os.path.join(LOC_DIR, 'Output/{}.csv').format(CITY)
 OPEN_DATA_URL = "https://api.jcdecaux.com/vls/v1/stations?contract={0}&apiKey={1}".format(CITY, OPEN_DATA_API_KEY)
+
+def check_key_is_available(OPEN_DATA_API_KEY, GOOGLE_DRIVE_API_KEY, VELIB_SPREADSHEET_CREDENTIAL):
+	if OPEN_DATA_API_KEY is None or GOOGLE_DRIVE_API_KEY is None or VELIB_SPREADSHEET_CREDENTIAL is None:
+		print("You need to set all the environments variables beforehand.")
+		import sys
+		sys.exit()
+	else:
+		print("All set! Ready to work.")
 
 def grabData(OPEN_DATA_URL=OPEN_DATA_URL):
 	response = requests.get(OPEN_DATA_URL).json()
@@ -94,6 +102,7 @@ def export_to_csvfile(DATA):
 
 def main():
 	global response, station_data
+	check_key_is_available(OPEN_DATA_API_KEY, GOOGLE_DRIVE_API_KEY, VELIB_SPREADSHEET_CREDENTIAL)
 	response = grabData()
 	station_data = get_station_data(response)
 	export_to_csvfile(station_data)
